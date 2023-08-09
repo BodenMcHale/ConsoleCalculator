@@ -2,34 +2,43 @@
 
 #include <stdio.h>
 
-// Development versions
-// 1. Input for numbers and basic addition
-// 2. Input for operators
-// 3. Transition to doubles instead of integers 
-// 4. Edge case testing
-
 int main()
 {
-	float firstNum;
-	float secondNum;
-	double result = 0.1234567;
-	double roundedResult;
+	double firstNum;
+	double secondNum;
 	char operator;
 
 	// Prompt for user input for firstNum
+	printf("Enter first number: ");
+	scanf_s("%lf", &firstNum);
 
 	// Prompt for user input for secondNum
+	printf("Enter second number: ");
+	scanf_s("%lf", &secondNum);
 
-	// Propmt user for operator
 
-	// Combine first and second numbers using operator
+	// Prompt user for operator
+	printf("Enter operator: ");
+	scanf_s(" %c", &operator, 1);
 
-	// -- Display result -- 
-	// Revert rounding on the result number
-	// This is due to using "%.6f"
-	roundedResult = round(result * 1000000) / 1000000;
-	// Print the result to the millionths place (0.123456)
-	printf("%.6f", roundedResult);
+	// Switch statement for each operator
+	switch (operator)
+	{
+	case '/':
+		printf("%lf / %lf = %lf", firstNum, secondNum, (firstNum / secondNum));
+		break;
+	case '*':
+		printf("%lf * %lf = %lf", firstNum, secondNum, (firstNum * secondNum));
+		break;
+	case '-':
+		printf("%lf - %lf = %lf", firstNum, secondNum, (firstNum - secondNum));
+		break;
+	case '+':
+		printf("%lf + %lf = %lf", firstNum, secondNum, (firstNum + secondNum));
+		break;
+	default:
+		break;
+	}
 
 	return 0;
 }
